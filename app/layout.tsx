@@ -18,22 +18,23 @@ const belanosima = Belanosima({
 });
 
 export const metadata: Metadata = {
-  title: "Noor Hesham Portfolio",
-  icons: { icon: "/me.png" },
+  metadataBase: new URL("https://abdelmajidzaddi.me"),
+  title: "Abdelmajid ZADDI | AI & ML Engineer",
+  icons: { icon: "/me.jpg" },
   openGraph: {
     type: "website",
-    title: "Noor Hesham Portfolio",
-    description: "MERN Stack Developer specializing in React, Next.js, TypeScript, Node.js, MongoDB, and Tailwind CSS.",
+    title: "Abdelmajid ZADDI | AI & ML Engineer",
+    description: "AI & Machine Learning Engineer specializing in Deep Learning, NLP, Computer Vision, and MLOps.",
     images: [
       {
-        url: "https://noor-hesham-boi.io/noor.jpg",
-        alt: "Noor Hesham Portfolio",
+        url: "/me.jpg",
+        alt: "Abdelmajid ZADDI Portfolio",
       },
     ],
-    url: "https://noor-hesham-boi.io/",
+    url: "https://abdelmajidzaddi.me/",
   },
   description:
-    "MERN Stack Developer specializing in React, Next.js, TypeScript,Node .js,Mongo DB and Tailwind CSS. Proven track record of crafting high-performance web applications with sleek, user-friendly interfaces. Adaptable and detail-oriented, committed to delivering top-notch solutions. Passionate about staying ahead in technology and contributing to dynamic teams.",
+    "AI & Machine Learning Engineer specializing in Deep Learning, NLP, Computer Vision, PyTorch, TensorFlow, and cloud platforms. Proven track record of building production-ready ML solutions. Passionate about leveraging AI to solve complex real-world problems.",
 };
 
 export default function RootLayout({
@@ -45,7 +46,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${belanosima.className} dark antialiased`}>
         <CustomCursor />
-        <LoaderProvider>
           <>
             <PageTransition />
             <SmoothScrollProvider>
@@ -57,7 +57,7 @@ export default function RootLayout({
               </main>
             </SmoothScrollProvider>
           </>
-        </LoaderProvider>
+       
       </body>
     </html>
   );

@@ -26,14 +26,14 @@ const Contact = () => {
         <MaxWidthWrapper noPadding className="flex justify-center items-center mx-auto flex-col gap-4">
           <Logo />
           <blockquote className=" text-4xl font-extrabold uppercase text-maincolor">
-            "If Your Dreams do not scare you, they are too small !"
+            "Innovation distinguishes between a leader and a follower."
           </blockquote>
-     
+
           <Paragraph
             width="w-[10px]"
             height="h-12"
             className=" !flex-nowrap text-xl font-semibold "
-            text="Got a project? Let’s vibe together and <br>make it ninjaa-precise—get in touch!"
+            text="Got an AI/ML project? Let's collaborate and <br>build something intelligent together—get in touch!"
           />
         </MaxWidthWrapper>
       </div>

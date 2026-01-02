@@ -5,17 +5,17 @@ export const navItems = [
   { name: "Contact", link: "#contact" },
 ];
 export const tech = [
-  "/ts.svg",
-  "/node.png",
-  "/idhHZwYUWa.png",
-  "/next.png",
-  "/react.svg",
-  "/tail.svg",
-  "/three.svg",
-  "/fm.svg",
-  "/query.png",
-  "/sass.webp",
-  "/js.png",
+  "/icons/python.png",
+  "/icons/tensorflow.png",
+  "/icons/docker.png",
+  "/icons/java.png",
+  "/icons/spring-boot.png",
+  "/icons/react.gif",
+  "/icons/nodejs.png",
+  "/icons/postgres.png",
+  "/icons/mysql.png",
+  "/icons/git.png",
+  "/icons/aws.png",
 ];
 export const gridItems = [
   {

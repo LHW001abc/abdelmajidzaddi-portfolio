@@ -43,13 +43,13 @@ const CopyEmail = () => {
 
       <SpaceBtn
         className="relative text-white z-30 hover:text-white"
-        onClick={() => handleCopy("noordragon2004@gmail.com", "email")}
+        onClick={() => handleCopy("abdelmajidzaddi088@gmail.com", "email")}
       >
         <span className="z-20">{copiedType === "email" ? "Email is Copied!" : "Copy my email address"}</span>
       </SpaceBtn>
       <SpaceBtn
         className="relative text-white hover:text-white z-30"
-        onClick={() => handleCopy("+201145838187", "phone")}
+        onClick={() => handleCopy("+212695557631", "phone")}
       >
         <span className="z-20">{copiedType === "phone" ? "Phone Number is Copied!" : "Copy my Phone Number"}</span>
       </SpaceBtn>

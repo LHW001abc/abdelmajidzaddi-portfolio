@@ -2,47 +2,49 @@
 import Image from "next/image";
 import { useState } from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export const testimonials = [
   {
     quote:
-      "This JavaScript course covers essential topics like DOM manipulation, async programming, and API integration, showcasing skills in creating dynamic web apps.",
-    name: "The Complete JavaScript Course 2023",
-    title: "Udemy",
-    img: "/c3.jpg",
-    link: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-3caccd9d-f820-48fa-b40c-d7e8afcb8739.pdf",
+      "Comprehensive DevOps course covering containerization, orchestration, and modern deployment practices for production-ready applications.",
+    name: "DevOps Concepts",
+    title: "DataCamp",
+    img: "/certificates/DevOps Concepts-1.png",
+    link: "",
   },
   {
     quote:
-      "This MERN stack course covers database management, server-side development, and API creation, highlighting proficiency in building scalable web applications.",
-    name: "The Complete Node.js, MongoDB, Express Course",
-    title: "Udemy",
-    img: "/c2.jpg",
-    link: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-cc321f8d-2603-4cd5-8c2b-fd7818ef3f13.pdf",
+      "Mastered Git workflows, branching strategies, and advanced version control techniques for collaborative software development.",
+    name: "Intermediate Git",
+    title: "DataCamp",
+    img: "/certificates/Intermediate Git-1.png",
+    link: "",
   },
   {
     quote:
-      "This React and Next.js course covers component-based architecture, server-side rendering, and performance optimization, demonstrating skills in modern web development.",
-    name: "The Complete React, Redux, RTK, Next.js Course",
-    title: "Udemy",
-    img: "/c1.jpg",
-    link: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-05fd62f5-87c2-447f-8ec9-0df38f5b8bee.pdf",
+      "Learned Docker containerization including image building, container management, and deployment strategies.",
+    name: "Introduction to Docker",
+    title: "DataCamp",
+    img: "/certificates/Introduction to Docker-1.png",
+    link: "",
   },
   {
     quote:
-      "This JavaScript DSA course covers arrays, linked lists, trees, sorting, and searching algorithms, showcasing skills in solving complex problems efficiently.",
-    name: "JavaScript Algorithms and Data Structures",
-    title: "",
-    img: "/c4.jpg",
-    link: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-bfe13cf7-585e-4437-9739-7c3685cffd79.pdf",
+      "Explored Kubernetes orchestration for managing containerized applications at scale with deployment and service management.",
+    name: "Introduction to Kubernetes",
+    title: "DataCamp",
+    img: "/certificates/Introduction to Kubernetes-1.png",
+    link: "",
   },
   {
     quote:
-      "The CS50 course covers algorithms, data structures, and web development, demonstrating a solid foundation in coding, problem-solving, and critical thinking.",
-    name: "CS50x: CS50's Introduction to Computer Science",
-    title: "Harvard University",
-    img: "/cs50.png",
-    link: "https://courses.edx.org/certificates/c6026e6a6ae34aca9bf6baff2eaf995e",
+      "Comprehensive MLOps course covering model deployment, monitoring, and lifecycle management for production ML systems.",
+    name: "MLOps Concepts",
+    title: "DataCamp",
+    img: "/certificates/MLOps Concepts-1.png",
+    link: "",
   },
 ];
 
@@ -77,6 +79,9 @@ export default function ServicesHover() {
             <p className="text-sm">{testimonial.title}</p>
           </div>
         ))}
+        <Link href="/certificates" className="block mt-4">
+          <Button className="w-full rounded-full">View All Certificates</Button>
+        </Link>
       </div>
     </MaxWidthWrapper>
   );

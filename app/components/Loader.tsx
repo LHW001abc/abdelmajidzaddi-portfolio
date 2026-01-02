@@ -9,40 +9,27 @@ const Loader = () => {
         defaults: { duration: 0.7, ease: "power4.out" },
       });
 
+      // Check if elements exist before animating
+      const majidElement = document.querySelector("#Zaddi");
+      const kunaiElement = document.querySelector("#Kunai");
+      const gElements = document.querySelectorAll("g");
+      const svgElement = document.querySelector("svg");
+
+      if (!majidElement || !kunaiElement || !gElements.length || !svgElement) {
+        return;
+      }
+
       gsap.set("g", { autoAlpha: 1 });
-      gsap.set("#Hesham", { xPercent: -10 });
       gsap.to("svg", { scale: 1.2, duration: 4 });
 
-      tl.from("#Noor", {
+      tl.from("#Zaddi", {
         yPercent: -200,
         stagger: 0.03,
         skewY: 60,
         scaleY: 0.9,
         opacity: 0,
-        duration: 0.6, // Reduced to make room for other animations
+        duration: 0.6,
       })
-        .from(
-          "#Hesham",
-          {
-            yPercent: 215,
-            stagger: 0.03,
-            skewY: 60,
-            skewX: 30,
-            scaleY: 0.9,
-            opacity: 0,
-            duration: 0.6, // Reduced to match "#Noor"
-          },
-          "-=.5"
-        )
-        .to(
-          "#Hesham",
-          {
-            xPercent: 10,
-            ease: "power2.out", // Simpler easing to avoid long animation
-            duration: 0.4,
-          },
-          "1.1"
-        )
         .from(
           "#Kunai",
           {
@@ -53,31 +40,7 @@ const Loader = () => {
           },
           "-=0.5"
         )
-        .to(
-          "#Noor",
-          {
-            skewX: 30,
-            stagger: 0.03,
-            x: 30,
-            scaleX: 0,
-            opacity: 0,
-            duration: 0.2,
-          },
-          "+=0.7"
-        )
-        .to(
-          "#Hesham",
-          {
-            skewX: 30,
-            stagger: 0.03,
-            x: 30,
-            scaleX: 0,
-            opacity: 0,
-            duration: 0.2,
-          },
-          "<"
-        )
-        .to("#Kunai", { xPercent: 20, duration: 0.6, ease: "power2.out" }, "<")
+        .to("#Kunai", { xPercent: 20, duration: 0.6, ease: "power2.out" }, "+=0.7")
         .to(".reveal", { scaleY: 0, duration: 1.4, ease: "power2.out", transformOrigin: "top" }, "-=0.6");
     });
 
@@ -101,7 +64,7 @@ const Loader = () => {
         <g className="g1 fill-white">
           {" "}
           <path
-            id="Hesham"
+            id="Zaddi"
             fillRule="evenodd"
             className="s0  fill-white"
             d="m239.5 311l-0.8 109.9-29.4 1 0.2-50.9h-30l-1.8 53.9-25.9-29-2.3-54.9h-10.5v-30h40.5v37.5h30v-37.5zm99 67v30h-90v-97.5h90v30h-60v7.5l34.8 1.4 10.2 21.1h-45v7.5zm97.5-67.5l-17.7 29.9-21.9 0.1q-1.3 0.4-1.3 1.8 0 0.8 0.4 1.5l11.7 6.6q18.3 10.2 18.3 27.6 0 12.4-8.9 21.3-8.6 8.7-21.1 8.7l-34.7-2.6-14.8-27.4h39.6q1.3-0.4 1.3-1.8 0-0.8-0.4-1.5l-11.7-6.6q-18.3-10.2-18.3-27.6 0-12.5 8.7-21.1 8.9-8.9 21.3-8.9zm97.5 0v97.5h-30v-37.5h-30v37.5h-30v-97.5h30v37.5h30v-37.5zm67.8 8.9l44.7 88.6h-31.5l-4-12h-34l-4 12h-31.5l41.3-96.1zm-17.7 55.6h19.8l-9.9-29.1zm174.9-64.5v97.5h-30v-33l-22.5 33-22.5-33v33h-30v-97.5h30l22.5 33 22.5-33z"
@@ -113,12 +76,17 @@ const Loader = () => {
         </g>
         <g className="g1">
           {" "}
-          <path
-            id="Noor"
-            fillRule="evenodd"
-            className="s0  fill-white"
-            d="m173 166.5v97.5h-30q0-27.9-12.3-40.9-8.1-8.6-17.7-8.6v49.5h-30v-67.5h-10.5v-30h11.1q21.1 0 38.6 8.2 15.4 7.4 20.8 17.3v-25.5zm105 48.8q0 20-14.4 34.5-14.2 14.2-34.4 14.2-20.2 0-34.5-14.2-14.2-14.3-14.2-34.5 0-20.1 14.2-34.4 14.4-14.4 34.5-14.4 20.2 0 34.4 14.4 14.4 14.3 14.4 34.4zm-30 0q0-7.7-5.6-13.2-5.5-5.6-13.2-5.6-7.8 0-13.3 5.6-5.4 5.3-5.4 13.2 0 7.8 5.4 13.3 5.5 5.4 13.3 5.4 7.9 0 13.2-5.4 5.6-5.5 5.6-13.3zm135 0q0 20-14.4 34.5-14.2 14.2-34.4 14.2-20.2 0-34.5-14.2-14.2-14.3-14.2-34.5 0-20.1 14.2-34.4 14.4-14.4 34.5-14.4 20.2 0 34.4 14.4 14.4 14.3 14.4 34.4zm-30 0q0-7.7-5.6-13.2-5.5-5.6-13.2-5.6-7.7 0-13.3 5.6-5.4 5.3-5.4 13.2 0 7.8 5.4 13.3 5.6 5.4 13.3 5.4 7.9 0 13.2-5.4 5.6-5.5 5.6-13.3zm130.5 18.7v30h-19.5q-12 0-21-9l-22.5-22.5v31.5h-30v-97.5h57q13.6 0 23.3 9.8 9.7 9.6 9.7 23.2 0 9.8-5.4 18-5.2 8.1-14.1 12.1 2 4.4 7.5 4.4zm-33-34.5q0-7.5-9-7.5h-21v15h21q9 0 9-7.5z"
-          />
+          <text
+            id="MajidText"
+            x="100"
+            y="230"
+            fontSize="120"
+            fontWeight="bold"
+            fill="white"
+            fontFamily="Inter, sans-serif"
+          >
+            ZADDI
+          </text>
         </g>
       </svg>
     </div>

@@ -63,7 +63,7 @@ const Me = () => {
       <section className="scrollup mb-auto circle1 justify-center flex items-center bg-black h-[25vh] lg:h-screen relative w-full z-40">
         <div className="mb-auto lg:my-0 mt-10 lg:mt-20">
           {charsTospans(
-            `The friendly neighborhood<br>MERN Stack Developer<br>with Next.js`,
+            `AI & Machine Learning<br>Engineer specializing in<br>Deep Learning & NLP`,
             "text-3xl lg:text-7xl opacity-100 lg:opacity-0  !lg:text-white !text-maincolor  lg:translate-y-12 text-white font-bold text-center text11 max-w-2xl ",
             "w-[10px]",
             "h-16",
@@ -78,7 +78,7 @@ const Me = () => {
             <h2 className="text-muted-foreground">BEYOND PORTFOLIO</h2>
             <h3 className="text-2xl lg:text-4xl">Let's know more about me</h3>
           </div>
-          <Card nohover icon={<FaLanguage />} title={"Spoken Languages"} paragraph="Watachiwa Noor des !">
+          <Card nohover icon={<FaLanguage />} title={"Spoken Languages"} paragraph="Arabic, French, English">
             <Suspense
               fallback={
                 <div className="w-full h-64 flex items-center rounded-full  overflow-hidden justify-center relative mt-5">
@@ -122,9 +122,9 @@ const Me = () => {
           </Card>
         </div>
         <div className="flex flex-col gap-5 col-span-3">
-          <Card img={"/masoura.png"}>
+          <Card img={"/mohammedia.png"}>
             <div className="text-muted-foreground font-thin bg-white absolute bottom-4 py-1.5 px-3 rounded-full">
-              📍 Mansoura , Egypt
+              📍 Mohammedia, Morocco
             </div>
           </Card>
           <Card
@@ -142,10 +142,10 @@ const Me = () => {
           <AnimatedImage data="coffe.json" className="max-h-96 w-full h-full" />
         </div>
         <p className="lg:text-2xl capitalize gap-1 m-auto font-semibold text-gray-800 max-w-xl">
-          Now, I'm pushing boundaries with Next.js,
-          <span className="inline text-maincolor2"> diving into 3D animations with Three.js</span>, and bringing my web
-          creations to life using GSAP. It's a constant learning adventure, and I'm loving every moment of mastering new
-          tools. 🚀
+          Now, I'm pushing boundaries with AI/ML,
+          <span className="inline text-maincolor2"> diving into LLMs and transformer architectures</span>, and deploying
+          production-ready ML pipelines. It's a constant learning adventure, and I'm loving every moment of mastering new
+          technologies. 🚀
         </p>
       </MaxWidthWrapper>
       <div className="flex my-5 flex-col items-center">

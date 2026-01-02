@@ -73,7 +73,7 @@ const MyWork = () => {
   return (
     <div className="bg-mainBg">
       <MaxWidthWrapper className="   text-base ">
-        <Header text="My Work" text2="Most Recent Work By Noor Boi" />
+        <Header text="My Work" text2="Most Recent Work By Abdelmajid" />
       </MaxWidthWrapper>
       <>
         {" "}
@@ -162,8 +162,8 @@ const MyWork = () => {
       <MaxWidthWrapper noPadding className=" flex lg:flex-row flex-col items-center justify-between">
         <p className=" lg:text-4xl   capitalize  gap-1   m-auto font-semibold text-white max-w-xl">
           With skills sharpened, I dove into{" "}
-          <span className=" inline  text-maincolor2">freelancing on the weekends{"  "}</span>
-          nothing felt better than delivering powerful, polished websites to happy clients. 🏆
+          <span className=" inline  text-maincolor2">building AI/ML solutions{"  "}</span>
+          nothing felt better than delivering powerful, production-ready models to happy clients. 🏆
         </p>
         <div className="  w-full h-fit  lg:-mt-40  relative">
           <AnimatedImage data="animate8.json" className=" w-full h-full " />

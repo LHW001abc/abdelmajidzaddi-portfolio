@@ -5,49 +5,71 @@ import Paragraph from "./Paragraph";
 const MyJourney = () => {
   const experience = [
     {
-      role: "Instructor & Freelancer",
-      company: "YouTube & Upwork",
-      date: "2021 - 2023",
-      location: "Global",
+      role: "AI Engineer",
+      company: "Futurate By Infosysta",
+      date: "Feb 2025 - Present",
+      location: "Casablanca, Morocco",
       details: [
-        "Taught full tutorials on YouTube, turning the impossible into 'just Google it.'",
-        "Guided aspiring developers with practical insights and detailed sessions.",
-        "Worked with top-tier clients on Upwork, delivering full-stack solutions for complex projects.",
-        "Built a reputation for balancing creativity with deadlines, and coffee with code.",
+        "Building production-ready AI/ML solutions using Python, PyTorch, and Hugging Face.",
+        "Developing and deploying NLP and GenAI applications with FastAPI and Django.",
+        "Working with LLMs and transformer models for various business applications.",
+        "Implementing MLOps practices with Docker and cloud platforms.",
       ],
-      tools: ["HTML", "CSS", "JavaScript", "React", "TypeScript"],
+      tools: ["Python", "PyTorch", "Hugging Face", "FastAPI", "Docker", "LLM", "NLP"],
     },
     {
-      role: "Senior Developer",
-      company: "Right Mind",
-      date: "2023 - Present",
+      role: "AI Developer & Freelancer",
+      company: "Upwork & ADAONE",
+      date: "Apr 2024 - Present",
       location: "Remote",
       details: [
-        "Learned the art of collaboration on large-scale projects with diverse teams.",
-        "Optimized performance for web applications that don’t just load—they fly.",
-        "Mastered complex workflows, proving 'Senior' is just a title.",
+        "Building computer vision solutions using OpenCV and YOLO Framework.",
+        "Developing ML models with TensorFlow and PyTorch for diverse client needs.",
+        "Deploying AI solutions on AWS with Flask APIs and CI/CD pipelines.",
+        "Working with clients globally on cutting-edge AI projects.",
       ],
-      tools: ["React", "Next.js", "SASS", "Performance Optimization"],
+      tools: ["Python", "TensorFlow", "PyTorch", "AWS", "Flask", "OpenCV"],
+    },
+    {
+      role: "NLP Engineering Intern",
+      company: "3D SMART FACTORY",
+      date: "Apr 2023 - Jul 2023",
+      location: "Rabat, Morocco",
+      details: [
+        "Developed NLP solutions for industrial applications.",
+        "Built data pipelines using Streamlit, Pandas, and NumPy.",
+        "Trained and fine-tuned deep learning models with PyTorch.",
+      ],
+      tools: ["Python", "PyTorch", "Streamlit", "Pandas", "Docker"],
     },
   ];
 
   const education = [
     {
-      title: "CS50 Certificate",
-      institution: "Harvard (Online)",
-      date: "2023",
+      title: "Software Engineering Degree",
+      institution: "FST Mohammedia - Hassan II University",
+      date: "2022 - 2025",
       details: [
-        "Survived one of the toughest programming courses, building a problem-solving mindset.",
-        "Earned the ultimate 'badge of coding honor.'",
+        "Software Engineering and Computer Systems Integration program.",
+        "Focus on AI, Machine Learning, and Data Engineering.",
       ],
     },
     {
-      title: "Competitive Programming",
-      institution: "LeetCode",
-      date: "2022 - 2023",
+      title: "DEUST in Mathematics & Computer Science",
+      institution: "FST Mohammedia - Hassan II University",
+      date: "2020 - 2022",
       details: [
-        "Solved hundreds of challenging problems, one bug at a time.",
-        "Turned frustration into elegant algorithms, and coffee into solutions.",
+        "Diploma of University Studies in Science and Technology.",
+        "Foundation in Mathematics, Physics and Computer Science.",
+      ],
+    },
+    {
+      title: "Baccalaureate - Mathematics Sciences",
+      institution: "Mohammed VI High School, Taroudant",
+      date: "2019 - 2020",
+      details: [
+        "Mathematics Science A, French option.",
+        "Strong foundation in mathematical reasoning and problem-solving.",
       ],
     },
   ];

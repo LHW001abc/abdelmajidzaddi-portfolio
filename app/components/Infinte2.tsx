@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
-import { FaStar, FaLightbulb, FaLaptopCode, FaUsers, FaCircle, FaShieldAlt, FaYoutube } from "react-icons/fa";
+import { FaStar, FaLightbulb, FaLaptopCode, FaUsers, FaCircle, FaShieldAlt, FaBrain, FaRobot, FaDatabase } from "react-icons/fa";
 import { useIsMobile } from "../hooks/useIsMobile";
 
 const TvMove = () => {
@@ -28,13 +28,13 @@ const TvMove = () => {
   };
 
   const wordsAndIcons = [
-    { word: "Creative", icon: <FaLightbulb className="text-yellow-400" /> },
-    { word: "Leader", icon: <FaStar className="text-blue-400" /> },
-    { word: "MERN Developer", icon: <FaLaptopCode className="text-green-400" /> },
-    { word: "Freelancer", icon: <FaCircle className="text-pink-400" /> },
-    { word: "Youtuber", icon: <FaYoutube className="text-red-400" /> },
+    { word: "AI Engineer", icon: <FaBrain className="text-purple-400" /> },
+    { word: "ML Expert", icon: <FaRobot className="text-blue-400" /> },
+    { word: "Data Scientist", icon: <FaDatabase className="text-green-400" /> },
+    { word: "Deep Learning", icon: <FaLightbulb className="text-yellow-400" /> },
+    { word: "NLP Specialist", icon: <FaCircle className="text-pink-400" /> },
     { word: "Focused", icon: <FaLightbulb className="text-orange-400" /> },
-    { word: "+4 Years", icon: <FaShieldAlt className="text-gray-400" /> },
+    { word: "+2 Years", icon: <FaShieldAlt className="text-gray-400" /> },
     { word: "Passionate", icon: <FaStar className="text-yellow-400" /> },
     { word: "Problem Solver", icon: <FaLightbulb className="text-blue-400" /> },
     { word: "Innovative", icon: <FaUsers className="text-pink-400" /> },

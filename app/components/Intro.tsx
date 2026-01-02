@@ -25,24 +25,13 @@ const FloatingDock = dynamic(() => import("./ui/floating-dock"), {
 const socials = [
   {
     title: "GitHub",
-    href: "https://github.com/Noorhesham",
+    href: "https://github.com/LHW001abc",
     icon: <FaGithub className=" w-6 h-6 text-white" />,
   },
   {
     title: "LinkedIn",
-    href: "https://www.linkedin.com/in/noor-elgendy-0aa84b207/",
+    href: "https://www.linkedin.com/in/abdelmajid-zaddi-694b2b290/",
     icon: <FaLinkedin className=" text-white w-6 h-6" />,
-  },
-  {
-    title: "Facebook",
-    href: "https://www.facebook.com/profile.php?id=100006306765558",
-    icon: <FaFacebook className=" w-6 h-6 text-white" />,
-  },
-  // YouTube Link
-  {
-    title: "YouTube",
-    href: "https://www.youtube.com/@noorboi6706",
-    icon: <FaYoutube className=" w-6 h-6 text-white" />,
   },
 ];
 const Intro = () => {
@@ -50,13 +39,13 @@ const Intro = () => {
   const [isFirst, setIsFirst] = useState(true);
   const { isMobile } = useIsMobile();
   const specialities = [
-    { text: "Mern Stack Dev.", color: "!text-green-400" },
+    { text: "AI/ML Engineer", color: "!text-green-400" },
     {
-      text: "Free-Lancer",
+      text: "Data Scientist",
       color: "!text-pink-400",
     },
     {
-      text: "Youtuber",
+      text: "Software Engineer",
       color: "!text-red-400",
     },
   ];
@@ -125,13 +114,13 @@ const Intro = () => {
                 width="w-[15px]"
                 height="h-16 lg:h-32"
                 className="head-1 uppercase font-semibold"
-                text="Hi , My Name <br>Is Noor"
+                text="Hi , My Name <br>Abdelmajid"
               />
               <div className="flex mt-16 flex-col items-start gap-3">
                 <GoArrowDownRight className=" text-white text-xl mr-4" />
                 <Paragraph
                   delay={1}
-                  text="Develop Your<br>Dream App<br>Now"
+                  text="Build Your<br>AI Solution<br>Now"
                   height="h-6"
                   className=" !items-start text-lg uppercase font-semibold"
                 />
@@ -142,11 +131,11 @@ const Intro = () => {
               </div>
             </div>
 
-            <div className="flex text-5xl lg:text-6xl lg:w-fit w-full mt-40 font-semibold flex-col items-start gap-2">
+            <div className="flex text-3xl lg:text-4xl lg:w-fit w-full mt-40 font-semibold flex-col items-start gap-2">
               <h2 className=" text-gray-50 lg:ml-auto">Working As</h2>
-              <div className="overflow-hidden relative h-14">
+              <div className="overflow-hidden relative h-10">
                 <Paragraph
-                  height=" h-10 lg:h-14"
+                  height=" h-8 lg:h-10"
                   animate={false}
                   text={specialities[index].text}
                   className={`header ${specialities[index].color}   !flex-nowrap text-nowrap  font-semibold 

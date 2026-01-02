@@ -1,17 +1,16 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
-import emailjs from "@emailjs/browser";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Button } from "@/components/ui/button";
 import gsap from "gsap";
 
 function CallMe() {
-  const ref = useRef<any>();
-  const formRef = useRef<any>();
-  const containerRef = useRef<any>();
-  const pathRef = useRef<any>();
-  const svgRef = useRef<any>();
-  const formWrapperRef = useRef<any>();
+  const ref = useRef<any>(null);
+  const formRef = useRef<any>(null);
+  const containerRef = useRef<any>(null);
+  const pathRef = useRef<any>(null);
+  const svgRef = useRef<any>(null);
+  const formWrapperRef = useRef<any>(null);
   const [err, setErr] = useState(false);
   const [success, setSuccess] = useState(false);
   const [pending, setPending] = useState(false);
@@ -54,40 +53,62 @@ function CallMe() {
     return () => ctx.revert();
   }, []);
 
-  function sendEmail(e: any) {
+  async function sendEmail(e: any) {
     setPending(true);
     e.preventDefault();
-    emailjs.sendForm("service_kxdhvdb", "template_3i15jgb", formRef?.current, "t8wKaNDqOW71fnrMx").then(
-      (result) => {
+    
+    const formData = new FormData(formRef.current);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
         setSuccess(true);
-        console.log(result.text);
-        setPending(false);
-      },
-      (error) => {
+        setErr(false);
+        formRef.current.reset();
+      } else {
+        const result = await response.json();
+        console.error("Email error:", result.error);
         setErr(true);
-        setPending(false);
-        console.log(error.text);
+        setSuccess(false);
       }
-    );
+    } catch (error) {
+      console.error("Email error:", error);
+      setErr(true);
+      setSuccess(false);
+    } finally {
+      setPending(false);
+    }
   }
 
   return (
-    <div ref={containerRef}>
-      <MaxWidthWrapper id="CallMe" className="z-[9998] relative flex justify-center overflow-hidden">
+    <div ref={containerRef} id="CallMe">
+      <MaxWidthWrapper className="z-[9998] relative flex justify-center overflow-hidden">
         <div className="w-full flex items-center lg:items-start gap-20 lg:flex-row flex-col">
           <div className="w-full flex-col text-gray-200 z-40 dark:text-gray-200 gap-4 flex capitalize">
-            <h1 className="text-[#5629d9] text-xl lg:text-4xl xl:text-5xl font-semibold mb-5">Call Me me now !</h1>
+            <h1 className="text-[#5629d9] text-xl lg:text-4xl xl:text-5xl font-semibold mb-5">Call Me now !</h1>
             <div>
               <h2 className="text-sm lg:text-3xl capitalize font-semibold">mail</h2>
-              <span>noordragon2004@gmail.com</span>
+              <span>abdelmajidzaddi088@gmail.com</span>
             </div>
             <div>
               <h2 className="text-sm lg:text-3xl capitalize font-semibold">address</h2>
-              <span>from egypt,mansoura </span>
+              <span>Mohammedia, Morocco </span>
             </div>
             <div>
               <h2 className="text-sm lg:text-3xl capitalize font-semibold">phone</h2>
-              <span>+20 1145838187</span>
+              <span>+212 695 557 631</span>
             </div>
           </div>
           <div className="z-[9998] w-full relative" ref={ref}>

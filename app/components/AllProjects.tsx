@@ -12,7 +12,7 @@ import { useIsMobile } from "../hooks/useIsMobile";
 import WorkPhone from "./WorkPhone";
 import Visit from "./Visit";
 import LinkTransition from "./LinkTransition";
-import PortfolioEvolution from "./PortFolioEvleotion";
+
 const AllProjects = () => {
   const [index, setIndex] = React.useState(0);
   const { isMobile } = useIsMobile();
@@ -53,15 +53,13 @@ const AllProjects = () => {
   }, [isMobile]);
   return (
     <div className="  relative bg-mainBg">
-      <div>
-        <PortfolioEvolution />
-      </div>
+      {/* Portfolio Evolution section removed - add your previous portfolios if you have any */}
       <MaxWidthWrapper className="flex font-semibold uppercase gap-2    lg:text-5xl text-2xl flex-col items-center max-w-2xl">
         <Paragraph height=" h-8 lg:h-14" text="MY Work !" className=" !text-maincolor2" />
         <Paragraph
           width="w-[14px]"
           className=""
-          text="I ve worked on huge projects<br>full stack webapps<br>complex sequence animations<br>huge frontend apps"
+          text="I ve worked on AI/ML projects<br>deep learning models<br>NLP solutions<br>production-ready ML systems"
         />
       </MaxWidthWrapper>
       <>

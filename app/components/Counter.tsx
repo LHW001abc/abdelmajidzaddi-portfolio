@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
-import { FaYoutube, FaLinkedin, FaProjectDiagram, FaSmile, FaCalendarAlt } from "react-icons/fa";
+import { FaLinkedin, FaProjectDiagram, FaSmile, FaCalendarAlt } from "react-icons/fa";
 import Link from "next/link";
 import GridContainer from "./GridContainer";
 import MaxWidthWrapper from "./MaxWidthWrapper";
@@ -16,21 +16,15 @@ type Stat = {
 
 const stats: Stat[] = [
   {
-    icon: <FaYoutube size={32} color="#FF0000" />,
-    title: "Subscribers on YouTube",
-    count: 4000,
-    prefix: "+",
-    link: "https://www.youtube.com/@noorboi6706",
-  },
-  {
     icon: <FaLinkedin size={32} color="#0077B5" />,
-    title: "Followers on LinkedIn",
-    count: 6000,
-    link: "https://www.linkedin.com/in/noor-elgendy-0aa84b207/",
+    title: "Connections on LinkedIn",
+    count: 500,
+    prefix: "+",
+    link: "https://www.linkedin.com/in/abdelmajid-zaddi-694b2b290/",
   },
-  { icon: <FaProjectDiagram size={32} color="#4CAF50" />, title: "Completed Projects", count: 20, prefix: "+" },
+  { icon: <FaProjectDiagram size={32} color="#4CAF50" />, title: "AI/ML Projects", count: 15, prefix: "+" },
   { icon: <FaSmile size={32} color="#FFC107" />, title: "Happy Clients", count: 10, prefix: "+" },
-  { icon: <FaCalendarAlt size={32} color="#673AB7" />, title: "Years of Experience", count: 3, prefix: "+" },
+  { icon: <FaCalendarAlt size={32} color="#673AB7" />, title: "Years of Experience", count: 2, prefix: "+" },
 ];
 
 const Counter = () => {
@@ -62,7 +56,7 @@ const Counter = () => {
   }, []);
   return (
     <MaxWidthWrapper>
-      <GridContainer cols={5} className=" gap-8 statttt justify-center  rounded-lg">
+      <GridContainer cols={4} className=" gap-8 statttt justify-center  rounded-lg">
         {stats.map((stat, index) =>
           stat.link ? (
             <Link

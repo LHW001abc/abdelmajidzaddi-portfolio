@@ -21,7 +21,7 @@ const NavBar = () => {
             <Logo />
           </div>
           <div className=" flex  items-center gap-5">
-            <a href="/noorhesham.pdf" download="Noor-Hesham-cv">
+            <a href="https://drive.google.com/file/d/1KpK_D3YDqPGkfdx0GBjCCLf_enGIjY0N/view?usp=sharing" target="_blank" rel="noopener noreferrer">
               <Button className=" text-sm">MY CV ?</Button>
             </a>
             <PhoneNav />
