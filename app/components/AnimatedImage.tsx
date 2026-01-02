@@ -1,9 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import Lottie from "react-lottie-player";
+import React, { useEffect, useState, useRef } from "react";
+import lottie, { AnimationItem } from "lottie-web";
 
 // Lazy-load animation files to avoid unnecessary imports
 const animationMap: Record<string, () => Promise<any>> = {
@@ -16,6 +15,8 @@ const animationMap: Record<string, () => Promise<any>> = {
 const AnimatedImage = ({ data = "animate1.json", className }: { data?: string; className?: string }) => {
   const [animationData, setAnimationData] = useState<any>(null);
   const [isClient, setIsClient] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<AnimationItem | null>(null);
 
   useEffect(() => {
     setIsClient(true);
@@ -25,11 +26,29 @@ const AnimatedImage = ({ data = "animate1.json", className }: { data?: string; c
     }
   }, [data]);
 
+  useEffect(() => {
+    if (containerRef.current && animationData && !animationRef.current) {
+      animationRef.current = lottie.loadAnimation({
+        container: containerRef.current,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+      });
+    }
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.destroy();
+        animationRef.current = null;
+      }
+    };
+  }, [animationData]);
+
   if (!isClient || !animationData) {
     return <Image width={2000} height={2000} alt="animation" src="/placeholder.png" />;
   }
 
-  return <Lottie loop play animationData={animationData} className={`${className || "max-w-[50%]"}`} />;
+  return <div ref={containerRef} className={`${className || "max-w-[50%]"}`} />;
 };
 
 export default AnimatedImage;

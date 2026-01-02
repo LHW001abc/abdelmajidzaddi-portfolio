@@ -1,45 +1,51 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import { Button } from "@/components/ui/button";
 import SpaceBtn from "./SpaceBtn";
-
-const Lottie = React.lazy(() => import("lottie-react"));
+import lottie, { AnimationItem } from "lottie-web";
+import confettiAnimation from "../data/conffite.json";
 
 const CopyEmail = () => {
   const [copiedType, setCopiedType] = useState<string | null>(null);
-  const lottieRef = useRef<any>(null);
+  const lottieContainerRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<AnimationItem | null>(null);
+
+  useEffect(() => {
+    if (lottieContainerRef.current && !animationRef.current) {
+      animationRef.current = lottie.loadAnimation({
+        container: lottieContainerRef.current,
+        renderer: "svg",
+        loop: false,
+        autoplay: false,
+        animationData: confettiAnimation,
+      });
+    }
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.destroy();
+        animationRef.current = null;
+      }
+    };
+  }, []);
 
   const handleCopy = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
     setCopiedType(type);
 
-    // Reset the state after 1 second
+    if (animationRef.current) {
+      animationRef.current.goToAndPlay(0);
+    }
+
     setTimeout(() => {
       setCopiedType(null);
     }, 1000);
   };
 
-  useEffect(() => {
-    if (copiedType && lottieRef.current) {
-      lottieRef.current.stop();
-      lottieRef.current.play();
-    }
-  }, [copiedType]);
-
   return (
     <div className="mt-5 text-white flex flex-col gap-4 items-center z-40 relative">
-      {/* Lazy-loaded Lottie component */}
-      <React.Suspense fallback={<div>Loading animation...</div>}>
-        <div className={`absolute -bottom-5 right-0 ${copiedType ? "block" : "hidden"}`}>
-          <Lottie
-            lottieRef={lottieRef}
-            animationData={require("../data/conffite.json")}
-            loop={false}
-            autoplay={false}
-            style={{ width: 200, height: 200 }}
-          />
-        </div>
-      </React.Suspense>
+      <div 
+        ref={lottieContainerRef}
+        className={`absolute -bottom-5 right-0 w-[200px] h-[200px] ${copiedType ? "block" : "hidden"}`}
+      />
 
       <SpaceBtn
         className="relative text-white z-30 hover:text-white"
