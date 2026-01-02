@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
-import MaxWidthWrapper from "./MaxWidthWrapper";
-import Paragraph from "./Paragraph";
+import { motion } from "framer-motion";
+import { Briefcase, GraduationCap, Calendar, MapPin } from "lucide-react";
 
 const MyJourney = () => {
   const experience = [
@@ -75,62 +77,113 @@ const MyJourney = () => {
   ];
 
   return (
-    <section className="bg-mainBg">
-      <MaxWidthWrapper className="grid   grid-cols-4 gap-4 mx-auto text-white p-6">
-        <div className="col-span-1 sticky top-6">
-          <div className="mb-12">
-            <h3 className="text-lg font-bold uppercase">Experience</h3>
+    <>
+      {/* Experience Section */}
+      <section id="experience" className="py-32 px-6 relative bg-mainBg">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <span className="text-blue-500 font-bold uppercase tracking-[0.2em] text-xs">Career Path</span>
+            <h2 className="text-4xl md:text-6xl font-extrabold mt-4 text-white">Professional Experience</h2>
           </div>
-          <div>
-            <h3 className="text-lg font-bold uppercase">Education</h3>
-          </div>
-        </div>
 
-        <div className="col-span-3 space-y-12">
-          <div>
-            {experience.map((item, index) => (
-              <div key={index} className="mb-8">
-                <h4 className="text-xl items-start flex font-semibold">
-                  <Paragraph className="!font-semibold !text-xl" text={item.role} />,{" "}
-                  <span className="text-maincolor2">{item.company}</span>
-                </h4>
-                <p className="text-gray-400 text-sm mb-2">
-                  {item.date} / {item.location}
-                </p>
-                <ul className="list-disc ml-6 mb-2">
-                  {item.details.map((detail, i) => (
-                    <li key={i}>{detail}</li>
-                  ))}
-                </ul>
-                <div className="flex lg:flex-nowrap flex-wrap gap-2">
-                  {item.tools.map((tool, i) => (
-                    <span key={i} className="px-3 py-1 bg-gray-800 rounded-full text-sm">
-                      {tool}
-                    </span>
-                  ))}
+          <div className="space-y-12 max-w-4xl mx-auto relative before:absolute before:left-[19px] md:before:left-1/2 before:top-4 before:bottom-4 before:w-[2px] before:bg-white/5 before:-translate-x-1/2">
+            {experience.map((exp, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className={`relative flex flex-col md:flex-row items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+              >
+                {/* Timeline Point */}
+                <div className="absolute left-[19px] md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-slate-950 border-4 border-slate-800 z-10 flex items-center justify-center">
+                  <Briefcase size={16} className="text-blue-400" />
                 </div>
-              </div>
-            ))}
-          </div>
 
-          <div>
-            {education.map((item, index) => (
-              <div key={index} className="mb-8">
-                <h4 className="text-xl font-semibold">{item.title}</h4>
-                <p className="text-gray-400 text-sm mb-2">
-                  {item.institution} / {item.date}
-                </p>
-                <ul className="list-disc ml-6">
-                  {item.details.map((detail, i) => (
-                    <li key={i}>{detail}</li>
-                  ))}
-                </ul>
-              </div>
+                {/* Card Content */}
+                <div className="w-full md:w-[45%] ml-14 md:ml-0">
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-[2rem] hover:border-blue-500/20 transition-all group">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xs font-bold text-blue-500 uppercase tracking-widest">{exp.date}</span>
+                      <Calendar size={14} className="text-slate-600" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-1 text-white group-hover:text-blue-400 transition-colors">{exp.role}</h3>
+                    <p className="text-slate-300 font-medium mb-2 flex items-center">
+                      <MapPin size={14} className="mr-2 text-slate-500" /> {exp.company}
+                    </p>
+                    <p className="text-slate-500 text-sm mb-4">{exp.location}</p>
+                    <ul className="text-slate-400 text-sm leading-relaxed mb-6 list-disc ml-4 space-y-1">
+                      {exp.details.map((detail, i) => (
+                        <li key={i}>{detail}</li>
+                      ))}
+                    </ul>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.tools.map((t) => (
+                        <span key={t} className="text-[10px] bg-white/5 border border-white/10 px-2 py-1 rounded text-slate-300 font-bold uppercase">{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Spacer for reverse layout */}
+                <div className="hidden md:block md:w-[45%]"></div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </MaxWidthWrapper>
-    </section>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="py-32 px-6 relative bg-mainBg">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <span className="text-emerald-500 font-bold uppercase tracking-[0.2em] text-xs">Learning Path</span>
+            <h2 className="text-4xl md:text-6xl font-extrabold mt-4 text-white">Education</h2>
+          </div>
+
+          <div className="space-y-12 max-w-4xl mx-auto relative before:absolute before:left-[19px] md:before:left-1/2 before:top-4 before:bottom-4 before:w-[2px] before:bg-white/5 before:-translate-x-1/2">
+            {education.map((edu, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className={`relative flex flex-col md:flex-row items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+              >
+                {/* Timeline Point */}
+                <div className="absolute left-[19px] md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-slate-950 border-4 border-slate-800 z-10 flex items-center justify-center">
+                  <GraduationCap size={16} className="text-emerald-400" />
+                </div>
+
+                {/* Card Content */}
+                <div className="w-full md:w-[45%] ml-14 md:ml-0">
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-[2rem] hover:border-emerald-500/20 transition-all group">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xs font-bold text-emerald-500 uppercase tracking-widest">{edu.date}</span>
+                      <Calendar size={14} className="text-slate-600" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-1 text-white group-hover:text-emerald-400 transition-colors">{edu.title}</h3>
+                    <p className="text-slate-300 font-medium mb-4 flex items-center">
+                      <MapPin size={14} className="mr-2 text-slate-500" /> {edu.institution}
+                    </p>
+                    <ul className="text-slate-400 text-sm leading-relaxed list-disc ml-4 space-y-1">
+                      {edu.details.map((detail, i) => (
+                        <li key={i}>{detail}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Spacer for reverse layout */}
+                <div className="hidden md:block md:w-[45%]"></div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
