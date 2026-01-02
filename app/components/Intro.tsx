@@ -9,6 +9,9 @@ const AnimatedImage = dynamic(() => import("./AnimatedImage"), {
     </div>
   ),
 });
+const GridScan = dynamic(() => import("./GridScan"), {
+  ssr: false,
+});
 import FlexWrapper from "./FlexWrapper";
 import Paragraph from "./Paragraph";
 import gsap from "gsap";
@@ -97,6 +100,17 @@ const Intro = () => {
   return (
     <section className="bg-mainBg">
       <section className="spacebg overflow-hidden bg-mainBg min-h-screen lg:block flex flex-col h-full relative">
+        <GridScan
+          sensitivity={0.55}
+          lineThickness={1}
+          linesColor="#1e1a2e"
+          gridScale={0.1}
+          scanColor="#5629d9"
+          scanOpacity={0.4}
+          bloomIntensity={0.6}
+          chromaticAberration={0.002}
+          noiseIntensity={0.01}
+        />
         <h2 className="portfolio lg:block hidden text-[14vw] font-bold uppercase text-[#313139] absolute left-1/2 -translate-x-1/2 bottom-0">
           PORTFOLIO
         </h2>
@@ -141,6 +155,7 @@ const Intro = () => {
                   className={`header ${specialities[index].color}   !flex-nowrap text-nowrap  font-semibold 
                 w-full`}
                 />
+                
               </div>
               <div className=" mt-4 ml-auto relative z-50">
                 <FloatingDock items={socials} />
