@@ -18,7 +18,7 @@ const stats: Stat[] = [
   {
     icon: <FaLinkedin size={32} color="#0077B5" />,
     title: "Connections on LinkedIn",
-    count: 500,
+    count: 19000,
     prefix: "+",
     link: "https://www.linkedin.com/in/abdelmajid-zaddi-694b2b290/",
   },
